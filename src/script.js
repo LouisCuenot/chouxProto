@@ -189,7 +189,7 @@ let isRotating
 
 const checkIfRotating = (e) => {
 
-    currentAngle = Math.acos(e.position.x) + Math.PI * e.position.y > 0 ? 0 : 1
+    currentAngle = Math.acos(e.position.x) + Math.PI * (e.position.y > 0 ? 0 : 1)
 
      const sossur = document.getElementById('sossur')
      sossur.innerText = `${currentAngle}`
