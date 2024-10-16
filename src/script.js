@@ -170,8 +170,6 @@ const handleKeyUp = () => {
     xLetter.visible = false
     iLetter.visible = false
     sLetter.visible = false
-
-
 }
 
 aButton.addEventListener('keydown',handleKeyDown)
@@ -185,8 +183,12 @@ iButton.addEventListener('keyup',handleKeyUp)
 sButton.addEventListener('keyup',handleKeyUp)
 
 
+
+
 const joystick1MoveHandler = (e) => {
     if(!joystickLetter) return
+    const sossur = document.getElementById('sossur')
+    sossur.innerText = `${e.position.x}X ${e.position.y}Y`
 
     joystickLetter.position.x = Math.max(-3,Math.min(3, joystickLetter.position.x + e.position.x * 0.1))
     joystickLetter.position.y = Math.max(-2,Math.min(2, joystickLetter.position.y + e.position.y * 0.1))
@@ -196,28 +198,23 @@ Axis.joystick1.addEventListener("joystick:move", joystick1MoveHandler);
 
 // Leaderboard
 
-const leaderboard = Axis.createLeaderboard({
-    id: "choux-game",
-});
-console.log(leaderboard)
-
-const newScore = await leaderboard.getScores().then(response=>{
-    return response.length
-})
-
-
-
-leaderboard
-    .postScore({
-        username: "Loulou",
-        value: newScore,
-    })
-    .then(() => {
-        // Get all scores
-        leaderboard.getScores().then((response) => {
-            console.log(response);
-        });
-    });
+//const leaderboard = Axis.createLeaderboard({
+//    id: "choux-game",
+//});
+//console.log(leaderboard)
+//
+//const newScore = await leaderboard.getScores().then(response=>{
+//    return response.length
+//})
+//
+//
+//
+//leaderboard
+//    .postScore({
+//        username: "Loulou",
+//        value: newScore,
+//    })
+    
 
 /**
  * Renderer

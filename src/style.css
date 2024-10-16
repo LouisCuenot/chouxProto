@@ -4,6 +4,14 @@
     padding: 0;
 }
 
+#sossur{
+    z-index: 100;
+    color: #FFFFFF;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
 html,
 body
 {
