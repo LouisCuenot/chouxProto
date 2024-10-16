@@ -190,6 +190,7 @@ const getAngle = (e) => {
     if(newAngle < 0){
         newAngle += Math.PI * 2
     }
+    newAngle = Math.round(newAngle*100)/100
     return newAngle
 }
 
