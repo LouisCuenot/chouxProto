@@ -203,9 +203,12 @@ const checkIfRotating = (e) => {
 
     if(vectorLength < 0.9){
         sossur.innerText = `PLUS FORT GAMIN`
-    }else{
-        sossur.innerText = `T'ES GRAND GAMIN`
+        return
     }
+
+    const angle = getAngle(e)
+
+    sossur.innerText = `${angle}`
 
     
 }
