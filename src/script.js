@@ -201,7 +201,7 @@ const checkIfRotating = (e) => {
     const vector = new THREE.Vector2(e.position.x,e.position.y)
     const vectorLength = vector.distanceTo(new THREE.Vector2(0,0))
 
-    if(vectorLength < 0.9){
+    if(vectorLength < 0.6){
         sossur.innerText = `PLUS FORT GAMIN`
         return
     }
