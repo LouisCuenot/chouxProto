@@ -209,7 +209,7 @@ const checkIfRotating = (e) => {
 
     const angle = getAngle(e)
     if(oldAngle < 6.27){
-        if(angle > oldAngle){
+        if(angle - oldAngle > 0.1){
             sossur.innerText = `CONTINUE GAMIN ${angle}`
         }else{
             sossur.innerText = `MAUVAIS SENS GAMIN ${angle}`
