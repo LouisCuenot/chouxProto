@@ -207,16 +207,31 @@ const checkIfRotating = (e) => {
     }
 
     const angle = getAngle(e)
-
-    if(angle > oldAngle){
-        sossur.innerText = `CONTINUE GAMIN ${angle}`
-    }else{
-        sossur.innerText = `MAUVAIS SENS GAMIN ${angle}`
+    if(oldAngle < 6.27){
+        if(angle > oldAngle){
+            sossur.innerText = `CONTINUE GAMIN ${angle}`
+        }else{
+            sossur.innerText = `MAUVAIS SENS GAMIN ${angle}`
+        }
     }
-
 
     oldAngle = angle
 }
+
+function throttle(func, delay) {
+    let lastCall = 0;
+    
+    return function(...args) {
+        const now = (new Date).getTime();
+
+        if (now - lastCall >= delay) {
+            lastCall = now;
+            func.apply(this, args);
+        }
+    };
+}
+
+const throttledCheckIfRotating = throttle(checkIfRotating,100)
 
 
 const joystick1MoveHandler = (e) => {
@@ -228,7 +243,7 @@ const joystick1MoveHandler = (e) => {
     joystickLetter.position.y = Math.max(-2,Math.min(2, joystickLetter.position.y + e.position.y * 0.1))
 }
 
-Axis.joystick1.addEventListener("joystick:move", checkIfRotating);
+Axis.joystick1.addEventListener("joystick:move", throttledCheckIfRotating );
 
 // Leaderboard
 
