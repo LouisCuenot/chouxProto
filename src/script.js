@@ -186,10 +186,16 @@ let currentAngle
 let isRotating
 
 
+console.log(Math.atan2(-0.1,-0.9))
+
+
 
 const checkIfRotating = (e) => {
 
-    currentAngle = Math.acos(e.position.x) + Math.PI * (e.position.y > 0 ? 0 : 1)
+    currentAngle = Math.atan2(e.position.y,e.position.y)
+    if(currentAngle < 0){
+        currentAngle += Math.PI * 2
+    }
 
      const sossur = document.getElementById('sossur')
      sossur.innerText = `${currentAngle}`
