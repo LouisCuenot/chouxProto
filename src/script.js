@@ -185,21 +185,15 @@ sButton.addEventListener('keyup',handleKeyUp)
 let currentAngle
 let isRotating
 
-
-console.log(Math.atan2(-0.1,-0.9))
-
-
-
 const checkIfRotating = (e) => {
 
-    currentAngle = Math.atan2(e.position.y,e.position.y)
+    currentAngle = Math.atan2(e.position.y,e.position.x)
     if(currentAngle < 0){
         currentAngle += Math.PI * 2
     }
 
      const sossur = document.getElementById('sossur')
      sossur.innerText = `${currentAngle}`
-
 }
 
 
