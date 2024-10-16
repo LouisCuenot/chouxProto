@@ -243,7 +243,7 @@ const joystick1MoveHandler = (e) => {
     joystickLetter.position.y = Math.max(-2,Math.min(2, joystickLetter.position.y + e.position.y * 0.1))
 }
 
-Axis.joystick1.addEventListener("joystick:move", throttledCheckIfRotating );
+Axis.joystick1.addEventListener("joystick:move", checkIfRotating );
 
 // Leaderboard
 
