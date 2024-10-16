@@ -182,7 +182,19 @@ xButton.addEventListener('keyup',handleKeyUp)
 iButton.addEventListener('keyup',handleKeyUp)
 sButton.addEventListener('keyup',handleKeyUp)
 
+let currentAngle
+let isRotating
 
+
+
+const checkIfRotating = (e) => {
+
+    currentAngle = Math.acos(e.position.x) + Math.PI * e.position.y > 0 ? 0 : 1
+
+     const sossur = document.getElementById('sossur')
+     sossur.innerText = `${currentAngle}`
+
+}
 
 
 const joystick1MoveHandler = (e) => {
@@ -194,7 +206,7 @@ const joystick1MoveHandler = (e) => {
     joystickLetter.position.y = Math.max(-2,Math.min(2, joystickLetter.position.y + e.position.y * 0.1))
 }
 
-Axis.joystick1.addEventListener("joystick:move", joystick1MoveHandler);
+Axis.joystick1.addEventListener("joystick:move", checkIfRotating);
 
 // Leaderboard
 
