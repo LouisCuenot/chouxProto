@@ -8,6 +8,7 @@
   "dependencies": {
     "@babel/core": "^7.14.6",
     "@babel/preset-env": "^7.14.7",
+    "axis-api": "github:gobelins-axis/axis-api",
     "babel-loader": "^8.2.2",
     "clean-webpack-plugin": "^3.0.0",
     "copy-webpack-plugin": "^9.0.1",
@@ -20,10 +21,11 @@
     "portfinder-sync": "0.0.2",
     "raw-loader": "^4.0.2",
     "style-loader": "^3.0.0",
-    "three": "^0.130.1",
+    "three": "^0.169.0",
     "webpack": "^5.42.1",
     "webpack-cli": "^4.7.2",
     "webpack-dev-server": "^3.11.2",
     "webpack-merge": "^5.8.0"
-  }
+  },
+  "packageManager": "yarn@1.22.19+sha1.4ba7fc5c6e704fce2066ecbfb0b0d8976fe62447"
 }
