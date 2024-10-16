@@ -218,30 +218,7 @@ const checkIfRotating = (e) => {
     oldAngle = angle
 }
 
-function throttle(func, delay) {
-    let lastCall = 0;
-    
-    return function(...args) {
-        const now = (new Date).getTime();
 
-        if (now - lastCall >= delay) {
-            lastCall = now;
-            func.apply(this, args);
-        }
-    };
-}
-
-const throttledCheckIfRotating = throttle(checkIfRotating,100)
-
-
-const joystick1MoveHandler = (e) => {
-    if(!joystickLetter) return
-    const sossur = document.getElementById('sossur')
-    sossur.innerText = `${e.position.x}X ${e.position.y}Y`
-
-    joystickLetter.position.x = Math.max(-3,Math.min(3, joystickLetter.position.x + e.position.x * 0.1))
-    joystickLetter.position.y = Math.max(-2,Math.min(2, joystickLetter.position.y + e.position.y * 0.1))
-}
 
 Axis.joystick1.addEventListener("joystick:move", checkIfRotating );
 
