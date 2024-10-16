@@ -182,18 +182,32 @@ xButton.addEventListener('keyup',handleKeyUp)
 iButton.addEventListener('keyup',handleKeyUp)
 sButton.addEventListener('keyup',handleKeyUp)
 
-let currentAngle
+let oldAngle
 let isRotating
+
+const getAngle = (e) => {
+    let newAngle = Math.atan2(e.position.y,e.position.x)
+    if(newAngle < 0){
+        newAngle += Math.PI * 2
+    }
+    return newAngle
+}
 
 const checkIfRotating = (e) => {
 
-    currentAngle = Math.atan2(e.position.y,e.position.x)
-    if(currentAngle < 0){
-        currentAngle += Math.PI * 2
+    const sossur = document.getElementById('sossur')
+    
+
+    const vector = new THREE.Vector2(e.position.x,e.position.y)
+    const vectorLength = vector.distanceTo(new THREE.Vector2(0,0))
+
+    if(vectorLength < 0.9){
+        sossur.innerText = `PLUS FORT GAMIN`
+    }else{
+        sossur.innerText = `T'ES GRAND GAMIN`
     }
 
-     const sossur = document.getElementById('sossur')
-     sossur.innerText = `${currentAngle}`
+    
 }
 
 
